@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Query_promotion</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('ro.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    กลุ่ม 3
+  </div>
+  <div class="w3-display-middle">
+    <center><h1 style="color:rgb(0, 0, 0)">promotion.</h1></center>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+    <input id = "target" value=" ">
+  </div>
+</div>
+
+    <script>
+        let trgt=document.getElementById("target");
+        document.write("<br>");
+        document.write(trgt.value(data));
+        $.getJSON('http://localhost:8000/getpromotion', function(data) {
+            console.log(data)
+            var text = " "
+            for (x of data[0]){
+                text+=`<li>${x.promotion_name}</li>`
+            }
+            $(".show").html(text);
+        });
+    </script>
+
+</body>
+</html>
